@@ -7,8 +7,8 @@ public class Main {
 
         List<String> list = new ArrayList<>();
         Set<Integer> set = new HashSet<>();
-        Queue<String> queue = new PriorityQueue<>();
-        Deque<String> deque = new ArrayDeque<>();
+        Queue<String> queue = new LinkedList<>();
+        Deque<String> deque = new LinkedList<>();
         Map<String, String> map = new HashMap();
 
         list.add("Car");
@@ -17,17 +17,14 @@ public class Main {
 
         set.add(1);
         set.add(2);
-        //System.out.println(set);
         for(Integer i: set){ System.out.println(i); }
 
-        queue.add("iPhone");
-        queue.add("Samsung");
-        //System.out.println(queue);
+        queue.offer("iPhone");
+        queue.offer("Samsung");
         for(String s: queue) { System.out.println(s); }
 
-        deque.add("Laptop");
-        deque.add("PC");
-        //System.out.println(deque);
+        deque.addLast("Laptop");
+        deque.addLast("PC");
         for(String s: deque) { System.out.println(s); }
 
         map.put("Laptop", "MacBook");
@@ -41,17 +38,15 @@ public class Main {
         set.removeAll(set);
         System.out.println(set);
 
-        queue.removeAll(queue);
+        for(String s: queue) { queue.poll(); }
         System.out.println(queue);
 
-        deque.removeAll(deque);
+        for(String s: deque) { deque.removeLast(); }
         System.out.println(deque);
 
-
-        Set keySet = map.keySet();
-        Object[] keyArray = keySet.toArray();
-        for (int i = 0; i < keyArray.length; i++) {
-            map.remove(keyArray[i]);
+        Set<String> keys = new HashSet<>(map.keySet());
+        for (String key : keys) {
+            map.remove(key);
         }
         System.out.println(map);
     }
