@@ -38,10 +38,10 @@ public class Main {
         set.removeAll(set);
         System.out.println(set);
 
-        for(String s: queue) { queue.poll(); }
+        while (!queue.isEmpty()){ queue.poll(); }
         System.out.println(queue);
 
-        for(String s: deque) { deque.removeLast(); }
+        while (!deque.isEmpty()){ deque.removeLast(); }
         System.out.println(deque);
 
         Set<String> keys = new HashSet<>(map.keySet());
